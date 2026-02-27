@@ -14,43 +14,43 @@ Depth \> breadth.
 
 ## Day 1--2: Project Setup
 
--   Create T3 app
--   Set up Postgres (local or Neon)
--   Set up Prisma
--   Configure NextAuth (Google or email login)
+-   Create T3 app x
+-   Set up Postgres (local or Neon) x
+-   Set up Prisma x
+-   Configure NextAuth (Google or email login) x
 
 You must be able to: - Sign in - Persist user in DB - Access session on
-frontend
+frontend x
 
 ## Day 3--4: Database Design
 
 ### Extend User
 
--   username
--   bio
--   image
+-   username x
+-   bio x
+-   image x
 
 ### Post
 
--   id
--   userId
--   content
--   createdAt
+-   id x
+-   userId x
+-   content x
+-   createdAt x
 
 ### Like
 
--   id
--   userId
--   postId
+-   id x
+-   userId x
+-   postId x
 
 ### Comment
 
--   id
--   userId
--   postId
--   content
+-   id x
+-   userId x
+-   postId x
+-   content x
 
-Run migrations and seed test data.
+Run migrations and seed test data. x
 
 ## Day 5--6: Create Post
 

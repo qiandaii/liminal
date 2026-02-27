@@ -126,7 +126,9 @@ exports.Prisma.PostScalarFieldEnum = {
   name: 'name',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  createdById: 'createdById'
+  createdById: 'createdById',
+  content: 'content',
+  picture: 'picture'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {

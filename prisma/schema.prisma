@@ -3,7 +3,7 @@
 
 generator client {
     provider = "prisma-client-js"
-    output   = "../generated/prisma"
+    // output   = "../generated/prisma"
 }
 
 datasource db {
@@ -16,16 +16,36 @@ datasource db {
 }
 
 model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
+    id          Int         @id @default(autoincrement())
+    name        String
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    createdBy   User        @relation(fields: [createdById], references: [id])
     createdById String
-
+    content     String
+    picture     String?
+    likes       Like[]
+    comments    Comment[]
     @@index([name])
 }
+
+model Like {
+    id          Int         @id @default(autoincrement())
+    onPost      Post        @relation(fields: [onPostId], references: [id], onDelete: Cascade)
+    onPostId    Int
+    createdBy   User        @relation(fields: [createdById], references: [id], onDelete: Cascade)
+    createdById String  
+}
+
+model Comment {
+    id          Int         @id @default(autoincrement())
+    onPost      Post        @relation(fields: [onPostId], references: [id], onDelete: Cascade)
+    onPostId    Int
+    createdBy   User        @relation(fields: [createdById], references: [id], onDelete: Cascade)
+    createdById String  
+    content     String
+}
+
 
 // Necessary for Next auth
 model Account {
@@ -58,12 +78,16 @@ model Session {
 model User {
     id            String    @id @default(cuid())
     name          String?
+    username      String?    @unique @default(cuid())
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    bio           String?
     accounts      Account[]
     sessions      Session[]
     posts         Post[]
+    likes         Like[]
+    comments      Comment[]
 }
 
 model VerificationToken {
