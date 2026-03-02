@@ -8,9 +8,9 @@ export default async function Profile() {
       <div className="flex flex-col gap-2 py-2">
         <p>名: qiandai</p>
         <hr></hr>
-        <p>last dreaming: 2 days ago</p>
+        <p>last dream: 2 days ago</p>
         <hr></hr>
-        <p>last seen in: nowhere</p>
+        <p>last visited: now</p>
       </div>
     </div>
   </div>
